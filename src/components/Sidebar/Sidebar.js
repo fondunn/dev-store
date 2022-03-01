@@ -1,10 +1,12 @@
 import React from 'react'
 import { SidebarContainer } from './Sidebar.style'
 
-function Sidebar() {
+import CatalogList from '../CatalogList/CatalogList'
+
+function Sidebar( {component} ) {
   return (
     <SidebarContainer>
-        sidebar
+        { component }
     </SidebarContainer>
   )
 }
