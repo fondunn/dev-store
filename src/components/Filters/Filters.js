@@ -2,7 +2,7 @@ import React from 'react'
 
 function Filters() {
   return (
-    <div>Filters component</div>
+    <div>Filters</div>
   )
 }
 

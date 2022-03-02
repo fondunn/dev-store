@@ -1,24 +1,16 @@
 import React from 'react'
-import { Navbar } from './Header.style'
-import { Link } from 'react-router-dom'
+import { Container } from './Header.style'
 
-import SearchField from '../SearchField/SearchField'
-import Button from '../Button/Button'
+import CustomButton from '../CustomButton/CustomButton'
 
 function Header() {
   return (
-    <Navbar>
-        <Button title={'='} />
-        <span>
-          <Link to="/">DEV STORE</Link>
-        </span>
-        <Button title={'Menu'}/>
-        <Button title={'Shop'} link={'shop'}/>
-        <SearchField />
-        <Button title={'search'}/>
-        <Button title={'profile'}/>
-        <Button title={'cart'}/>
-    </Navbar>
+    <Container>
+        <CustomButton title={'Home'} link={'/'}/>
+        <CustomButton title={'Shop'} link={'/shop'}/>
+        <CustomButton title={'Login'} link={'/shop'}/>
+        <CustomButton title={'Cart'} link={'/shop'}/>
+    </Container>
   )
 }
 

@@ -1,16 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-function CollectionPreview({ item }) {
-    console.log(item);
-    const { title, price } = item
+function CollectionPreview({ component }) {
   return (
-    <div>
-        <h1>{title}</h1>
-        <p>{price}</p>
-    </div>
+    <div>{ component }</div>
   )
 }
 
-
-export default connect()(CollectionPreview)
+export default CollectionPreview

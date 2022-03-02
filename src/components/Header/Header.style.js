@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
-export const Navbar = styled.div `
+export const Container = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: #010D00;
-color: white;
+background: #006064;
+color: #fff;
+
+
 height: 50px;
+width: 100vw;
 `

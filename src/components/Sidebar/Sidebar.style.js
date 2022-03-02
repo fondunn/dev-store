@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
-export const SidebarContainer = styled.div `
+export const Container = styled.div`
 display: flex;
 justify-content: center;
-background: #F2F2F2;
-max-width: 460px;
-width: 20vw;
 
-border-right: 1px solid #D9D9D9;
-
+padding: 0 20px;
 padding-top: 20px;
+
+background: #b2ebf2;
+border-right: 1px solid black;
 `

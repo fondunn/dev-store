@@ -1,11 +1,12 @@
 import React from 'react'
-import { SidebarContainer } from './Sidebar.style'
+import { Container } from './Sidebar.style'
 
-function Sidebar( {component} ) {
+function Sidebar({ component }) {
   return (
-    <SidebarContainer>
-        { component }
-    </SidebarContainer>
+    <Container>
+        {/* Sidebar */}
+        {component}
+    </Container>
   )
 }
 
