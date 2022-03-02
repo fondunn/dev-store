@@ -8,8 +8,6 @@ import CatalogList from '../../components/CatalogList/CatalogList'
 
 import CarouselContainer from '../../components/Carousel/Carousel'
 
-const component = () => ( <CatalogList /> )
-
 function Home() {
   return (
     <Container>

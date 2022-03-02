@@ -1,19 +1,23 @@
 import React from 'react'
 
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { selectDirectorySections } from '../../redux/directory/directory.selectors'
+
 import { Link } from 'react-router-dom'
 
 import { catalogData } from '../../data/catalogData'
 
 import { ListItem } from './CatalogList.style'
 
-function CatalogList() {
-    console.log(catalogData);
+function CatalogList({ sections }) {
+    console.log(sections);
   return (
     <div>
         <ul>
         {
-            catalogData.map(item => {
-                return <ListItem key={item.id}><Link to={`/${item.link}`}>{item.title}</Link></ListItem>
+            sections.map(item => {
+                return <ListItem key={item.id}><Link to={`/${item.linkUrl}`}>{item.title}</Link></ListItem>
             })
         }
         </ul>
@@ -22,4 +26,8 @@ function CatalogList() {
   )
 }
 
-export default CatalogList
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections
+})
+
+export default connect(mapStateToProps)(CatalogList)

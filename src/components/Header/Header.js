@@ -13,7 +13,7 @@ function Header() {
           <Link to="/">DEV STORE</Link>
         </span>
         <Button title={'Menu'}/>
-        <Button title={'Catalog'} link={'catalog'}/>
+        <Button title={'Shop'} link={'shop'}/>
         <SearchField />
         <Button title={'search'}/>
         <Button title={'profile'}/>

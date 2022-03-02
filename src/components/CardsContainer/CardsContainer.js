@@ -10,7 +10,7 @@ function CardsContainer() {
         {
             Object.keys(notebooks).map(item => {
                 return Object.values(notebooks[item]).map(notebook => {
-                    return <Card title={notebook.title}/>
+                    return <Card title={notebook.title} price={notebook.price} img={notebook.img[0]}/>
                 })
                 
                 
