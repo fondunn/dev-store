@@ -6,16 +6,30 @@ import CollectionItem from '../CollectionItem/CollectionItem'
 
 function CollectionOverview() {
     const { categoryId } = useParams()
-    console.log(goods[categoryId])
+    console.log(categoryId);
+    console.log('goods category: ',goods[1])
+
+    function getCategories(arr) {
+      return arr.filter(item => {
+        if (item.category === categoryId) return item
+      })
+
+    }
+    const items = getCategories(goods)
+    console.log('filtered items: ',items);
+
   return (
     <div>
         {
-            goods[categoryId] === undefined 
+            items.length === 0
             ?
             'Sorry, no stuff at this category'
             : 
-            goods[categoryId].map(item => {
-                return <CollectionItem data={item}/>
+            items.map(item => {
+              
+                return <CollectionItem data={item} category={categoryId}/>
+              
+                
             })
             
             

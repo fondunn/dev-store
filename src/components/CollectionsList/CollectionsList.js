@@ -4,6 +4,8 @@ import { Container, StuffContainer } from './CollectionsList.style'
 import { goods } from '../../data/goods'
 import CollectionItem from '../CollectionItem/CollectionItem'
 
+import { capitalize } from 'helpers/capitalizeFirst'
+
 function CollectionsList() {
     return (
         <div>
@@ -11,10 +13,10 @@ function CollectionsList() {
                 Object.keys(goods).map(category => {
                     return (
                         <Container key={`category ${category}`}>
-                            <p key={`category ${category}`}>{category.charAt(0).toLocaleUpperCase() + category.slice(1)}</p>
+                            <p key={`category ${category}`}>{capitalize(category)}</p>
                             <StuffContainer>
                                 {goods[category].map(item => {
-                                    return <CollectionItem key={`item ${item._id}`} data={item}/>
+                                    return <CollectionItem key={`item ${item._id}`} data={item} category={category}/>
                                 })}
                             </StuffContainer>
                             

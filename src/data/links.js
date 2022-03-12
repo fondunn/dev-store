@@ -1,11 +1,11 @@
 export const links = [
     {
         title: 'Notebooks',
-        url: 'shop/notebooks'
+        url: 'shop/notebook'
     },
     {
         title: 'Smartphones',
-        url: 'shop/smartphones'
+        url: 'shop/smartphone'
     },
     {
         title: 'Military',

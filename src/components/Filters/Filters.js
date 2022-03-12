@@ -1,8 +1,11 @@
 import React from 'react'
 
-function Filters() {
+function Filters({ children }) {
   return (
-    <div>Filters</div>
+    <div>
+      <h3>Filters</h3>
+      { children }
+    </div>
   )
 }
 

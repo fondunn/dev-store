@@ -24,12 +24,14 @@ justify-content: center;
 align-items: center;
 overflow: hidden;
 width: 100%;
-height: 100%;
-
+height: 70%;
+position: absolute;
+top: 0;
+left: 0;
 
 & img {
 object-fit: cover;
-width: 90%;
+width: 100%;
 height: 90%;
 border-radius: 5px;
 }

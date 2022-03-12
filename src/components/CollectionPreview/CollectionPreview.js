@@ -1,8 +1,8 @@
 import React from 'react'
 
-function CollectionPreview({ component }) {
+function CollectionPreview({ children }) {
   return (
-    <div>{ component }</div>
+    <div>{ children }</div>
   )
 }
 

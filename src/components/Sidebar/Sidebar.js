@@ -1,11 +1,10 @@
 import React from 'react'
 import { Container } from './Sidebar.style'
 
-function Sidebar({ component }) {
+function Sidebar({ children }) {
   return (
     <Container>
-        {/* Sidebar */}
-        {component}
+    {children}
     </Container>
   )
 }
