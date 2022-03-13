@@ -166,7 +166,7 @@ function ShopPage() {
             collection.map(item => {
               return (
                 
-                <CollectionItem data={item} category={item.category}/>
+                <CollectionItem key={item.name} data={item} category={item.category}/>
               )
             })
           }

@@ -8,6 +8,8 @@ import CategoryPage from './pages/CategoryPage/CategoryPage'
 import DetailPage from './pages/DetailPage/DetailPage'
 import NoMatchPage from './pages/NoMatchPage/NoMatchPage'
 
+
+
 const ShopPage = React.lazy(() => import('./pages/ShopPage/ShopPage'))
 
 function App() {

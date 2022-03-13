@@ -1,17 +1,25 @@
 import React from 'react'
 import { Container } from './Header.style'
+import { connect } from 'react-redux'
 
-import CustomButton from '../CustomButton/CustomButton'
+import CustomButton from 'components/CustomButton/CustomButton'
+import CartIcon from 'components/CartIcon/CartIcon'
+import CartDropDown from 'components/CartDropDown/CartDropDown'
 
-function Header() {
+function Header({ hidden }) {
   return (
     <Container>
         <CustomButton title={'Home'} link={'/'}/>
         <CustomButton title={'Shop'} link={'/shop'}/>
         <CustomButton title={'Login'} link={'/shop'}/>
-        <CustomButton title={'Cart'} link={'/shop'}/>
+        <CartIcon />
+        { hidden ? null : <CartDropDown /> }
     </Container>
   )
 }
 
-export default Header
+const mapStateToProps = ({ cart: { hidden } }) => ({
+  hidden
+})
+
+export default connect(mapStateToProps)(Header)

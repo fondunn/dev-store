@@ -15,7 +15,7 @@ function DetailPage() {
 
     function findItem(arr) {
         return arr.find(item => {
-            return item._id = detailId
+            return item.id = detailId
         })
     }
     const item = findItem(goods)

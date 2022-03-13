@@ -16,9 +16,10 @@ module.exports = {
             react: path.join(__dirname, 'node_modules', 'react'),
             components: path.join(__dirname, 'src/components/'),
             helpers: path.join(__dirname, 'src/helpers/'),
-            data: path.join(__dirname, 'src/data/')
+            data: path.join(__dirname, 'src/data/'),
+            
         },
-        extensions: ['.js', '.jsx', '.css']
+        extensions: ['.js', '.jsx', '.css', '.mjs']
     },
     module: {
         rules: [

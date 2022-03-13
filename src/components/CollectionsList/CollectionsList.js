@@ -16,10 +16,10 @@ function CollectionsList() {
                             <p key={`category ${category}`}>{capitalize(category)}</p>
                             <StuffContainer>
                                 {goods[category].map(item => {
-                                    return <CollectionItem key={`item ${item._id}`} data={item} category={category}/>
+                                    return <CollectionItem key={`item ${item.id}`} data={item} category={category} />
                                 })}
                             </StuffContainer>
-                            
+
                         </Container>
 
                     )
