@@ -14,5 +14,6 @@ color: #000;
 padding: 10px;
 
 display: flex;
-justify-content: center;
+flex-direction: column;
+${'' /* justify-content: center; */}
 `

@@ -1,10 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { DropdownContainer } from './CartDropdown.style'
+import CartItem from 'components/CartItem/CartItem'
 
-function CartDropDown() {
+function CartDropDown({ cartItems }) {
   return (
-    <DropdownContainer>CartDropDown</DropdownContainer>
+    <DropdownContainer>
+      {
+        cartItems.map(item => 
+          <CartItem key={item.id} data={item}/>
+        )
+      }
+    </DropdownContainer>
   )
 }
 
-export default CartDropDown
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems
+})
+
+export default connect(mapStateToProps)(CartDropDown)

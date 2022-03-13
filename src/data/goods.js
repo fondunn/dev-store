@@ -9,7 +9,7 @@ export const goods = [
     },
     {
         category: 'smartphone',
-        id: 'defdd',
+        id: 'defddssd',
         name: 'Samsung Galaxy S22 Ultra',
         brand: 'Samsung',
         imgUrl: 'https://content1.rozetka.com.ua/goods/images/big/253281547.jpg',
