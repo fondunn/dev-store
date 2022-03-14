@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage/HomePage'
 // import ShopPage from './pages/ShopPage/ShopPage'
 import CategoryPage from './pages/CategoryPage/CategoryPage'
 import DetailPage from './pages/DetailPage/DetailPage'
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
 import NoMatchPage from './pages/NoMatchPage/NoMatchPage'
 
 
@@ -29,6 +30,7 @@ function App() {
         />
         <Route path='shop/:categoryId' element={ <CategoryPage /> } />
         <Route path='shop/:categoryId/:detailId' element={ <DetailPage /> } />
+        <Route path='/checkout' element={ <CheckoutPage /> } />
         <Route path='*' element={ <NoMatchPage /> } />
       </Routes>
     </div>
