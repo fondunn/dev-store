@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import useFilter from 'helpers/useFilter/useFilter'
 
 import { Container, Content } from './ShopPage.style'
 
@@ -24,57 +25,24 @@ const min = getValue(prices, 'min')
 const max = getValue(prices, 'max')
 
 function ShopPage() {
+  const {filters, toggleCategory, toggleBrand, resetFilter} = useFilter()
+  
   const [minValue, setMinValue] = useState(min)
   const [maxValue, setMaxValue] = useState(max)
-  const [filters, setFilters] = useState({ brands: [], categories: [] })
   const [selectedPrice, setSelectedPrice] = useState([minValue, maxValue])
   
   const [checkedState, setCheckedState] = useState(
     new Array(uniqCategories.length + uniqBrands.length).fill(false)
   )
-  console.log('checkboxes state: ',checkedState);
-
 
   const [collection, setCollection] = useState(goods)
-
   const minValueRef = useRef(null)
   const maxValueRef = useRef(null)
-  const isChecked = useRef(false)
-
-  const showCategory = (e) => {
-    if (filters.categories.length === 0) {
-      setFilters({ brands: [...filters.brands], categories: [e] })
-    }
-    else if (!filters.categories.includes(e)) {
-      setFilters({ brands: [...filters.brands], categories: [...filters.categories, e] })
-    } else {
-      setFilters({
-        brands: [...filters.brands], categories: filters.categories.filter(item => {
-          return item !== e
-        })
-      })
-    }
-  }
-  const showBrand = (e) => {
-    if (filters.brands.length === 0) {
-      setFilters({ categories: [...filters.categories], brands: [e] })
-    }
-    else if (!filters.brands.includes(e)) {
-      setFilters({ categories: [...filters.categories], brands: [...filters.brands, e] })
-    } else {
-      setFilters({
-        categories: [...filters.categories], brands: filters.brands.filter(item => {
-          return item !== e
-        })
-      })
-    }
-  }
-
+ 
   const applyFilters = () => {
     let updatedList=goods
     const minPrice = selectedPrice[0]
     const maxPrice = selectedPrice[1]
-    const testArr = []
     if(filters.brands.length > 0) {
       updatedList = updatedList.filter(item => {
         return filters.brands.includes(item.brand)
@@ -85,7 +53,6 @@ function ShopPage() {
         return filters.categories.includes(item.category)
       })
     }
-
     updatedList = updatedList.filter(item => {
       return item.price>=minPrice && item.price<=maxPrice
     })
@@ -96,7 +63,7 @@ function ShopPage() {
     collection
     setMinValue(min)
     setMaxValue(max)
-    setFilters({ brands: [], categories: [] })
+    resetFilter()
     setSelectedPrice([minValue, maxValue])
     setCheckedState(
       new Array(uniqCategories.length + uniqBrands.length).fill(false)
@@ -107,7 +74,6 @@ function ShopPage() {
     const updatedCheckedState = checkedState.map((item, index) => {
       return index === position ? !item : item
     })
-
     setCheckedState(updatedCheckedState)
   }
 
@@ -126,7 +92,7 @@ function ShopPage() {
                 <FiltersCheckbox>
                   <input 
                     type="checkbox" 
-                    onChange={() => {showCategory(item); handleOnChange(index)}}
+                    onChange={() => {handleOnChange(index); toggleCategory(item)}}
                     checked={checkedState[index]}
                   /> <h3>{capitalize(item)}</h3>
                 </FiltersCheckbox>
@@ -142,7 +108,7 @@ function ShopPage() {
                 <FiltersCheckbox>
                   <input 
                     type="checkbox" 
-                    onChange={() => {showBrand(item); handleOnChange(index+categoriesLength)}} 
+                    onChange={() => {handleOnChange(index+categoriesLength); toggleBrand(item)}} 
                     checked={checkedState[index+categoriesLength]}
                   /> 
                   <h3>{item}</h3>
